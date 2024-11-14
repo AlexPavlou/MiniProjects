@@ -1,0 +1,90 @@
+header,footer {
+	background-color:#1F2937;
+}
+html, body{
+	height: 100%;
+	overflow-x: hidden;
+}
+body {
+	margin:0;
+	padding:0;
+* {
+        text-align:center;
+}
+.container {
+        display:flex;
+        align-items:center;
+        flex-direction:row;
+        justify-content:center;
+        gap:60px;
+        padding-top:100px;
+        padding-bottom:200px;
+}
+.container img {
+        width:200px;
+        height:200px;
+        padding:0px;
+        margin:auto;
+}
+.actions-div {
+        display:flex;
+        align-items:center;
+        flex-direction:row;
+        justify-content:center;
+        gap:60px;
+}
+.actions-div img {
+        width:400px;
+        height:400px;
+}
+.player-action .robot-action{
+        width:400px;
+        height:400px;
+}
+.robot-action {
+        transform: scalex(-1);
+ }
+.container button {
+        border-radius:20px;
+}
+.stats {
+        font-size:40px;
+        font-weight:bold;
+}
+.announce{
+        font-size:24px;
+}
+.end-paragraph {
+        font-size:40px;
+        font-weight:bold;
+}
+footer {
+	display: flex;
+	color: #F9FAF8;
+	padding: 20px 100px;
+	align-items:center;
+	justify-content:center;
+}
+a:link {
+  color: #b3b3b3;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #a1a1a1;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #a47070;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #a49e70;
+  background-color: transparent;
+  text-decoration: underline;
+}

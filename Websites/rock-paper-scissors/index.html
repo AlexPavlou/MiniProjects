@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<h1>The Rock,Paper and Scissors Game</h1>
+
+<p class="announce"id="sec"></p>
+
+<div class="actions-div">
+        <img src="img/rock.svg" class="player-action" id="player-action"></img>
+        <img src="img/rock.svg" class="robot-action" id="robot"></img>
+</div>
+<p class="stats" id="first"></p>
+<p class="end-paragraph"id="demo"></p>
+<div class="container">
+        <button onclick=myFunction("rock")><img src="img/rock.svg"></img></button>
+        <button onclick=myFunction("paper")><img src="img/paper.svg"></img></button>
+        <button onclick=myFunction("scissors")><img src="img/scissors.svg"></img></button>
+</div>
+
+<script>
+L=0;
+W=0;
+over=false;
+function myFunction(action) {
+        if(over===false){
+        document.getElementById("player-action").src="img/"+action+".svg";
+        var choice1 = action;
+        var choice2 = Math.floor(Math.random()*3);
+        if(choice2===0){
+        document.getElementById("robot").src="img/rock.svg";
+        }
+        else if (choice2===1){
+        document.getElementById("robot").src="img/paper.svg";
+        }
+        else{
+        document.getElementById("robot").src="img/scissors.svg";
+        }
+        if (choice1 === "paper"){
+                if (choice2===0){
+                        W=W+1;
+                        document.getElementById("sec").innerHTML = "You Won!";
+                }
+                else if ( choice2===2)
+                {
+                        L=L+1;
+                        document.getElementById("sec").innerHTML = "You Have Lost!";
+                }
+                else{
+                document.getElementById("sec").innerHTML = "It's a tie!";
+                }
+        }
+        else if (choice1 === "scissors"){
+                if (choice2===0){
+                        L=L+1;
+                        document.getElementById("sec").innerHTML = "You Have Lost!";
+                }
+                else if ( choice2===1)
+                {
+                        W=W+1;
+                        document.getElementById("sec").innerHTML = "You Won!";
+                }
+                else{
+                document.getElementById("sec").innerHTML = "It's a tie!";
+                }
+        }
+        else if (choice1 === "rock"){
+                if (choice2===1){
+                        L=L+1;
+                        document.getElementById("sec").innerHTML = "You Have Lost!";
+                }
+                else if ( choice2===2)
+                {
+                        W=W+1
+                        document.getElementById("sec").innerHTML = "You Won!";
+                }
+                else{
+                document.getElementById("sec").innerHTML = "It's a tie!";
+                }
+        }
+        if(W>4){
+                over=true;
+                document.getElementById("demo").innerHTML = "Player 1 Has Won!";
+        }
+        else if (L>4){
+                over=true;
+                document.getElementById("demo").innerHTML = "Game Over";
+        }
+        }
+        document.getElementById("first").innerHTML = "W: " + W + "&emsp;&emsp;L: " + L;
+}
+</script>
+</body>
+<footer>
+        <p>Copyright &copy; Alex Pavlou 2023<br> Images were taken from <a href="https://thenounproject.com/cristiano.zoucas/">Cristiano Zoucas - thenounproject</a></p>
+</footer>
+</html>

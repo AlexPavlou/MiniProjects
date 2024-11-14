@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+<style>
+.container {
+  display: inline-block;
+  text-align:center;
+  width:500px;
+  padding:40px 50px 0px 50px;
+}
+.container img{
+	width:400px;
+    height:auto;
+	margin:auto;
+	display:block;
+}
+
+#world{
+	margin-top:60px;
+	width:500px;
+}
+
+.container a button{
+	margin: 0 auto;
+}
+html, body{
+	height: 100%;
+	overflow-x: hidden;
+}
+body {
+	margin:0;
+	text-align:center;
+	padding:0;
+}
+.signup-container {
+	background-color: #a47070;
+	display:inline-block;
+    margin:0 auto;
+	padding:50px;
+	display:inline-block;
+	border-radius:5px;
+}
+.signup-btn {
+	color:#F9FAF8;
+	background-color:#1d2021;
+	border: 2px solid #F9FAF8;
+	border-radius:12px;
+	padding: 14px 30px;
+        margin-top:40px;
+}
+a{
+	color:#F9FAF8;
+        text-decoration:none;
+}
+footer {
+	display: flex;
+	color: #F9FAF8;
+	padding: 35px 100px;
+	align-items:center;
+	justify-content:center;
+}
+</style>
+</head>
+<body>
+
+	<div style="display:inline-block;vertical-align:middle;background-color:#a47070;margin:50px;">
+		<div class="container">
+			<h2>Interactive European Map</h2>
+            <img src="img/eu.svg">
+		</div>
+		<div class="container">
+            <h2>Interactive World Map</h2>
+            <img id="world" src="img/world.svg">
+		</div>
+		<div class="container" style="display:block;margin:40px auto;">
+			<a href="pages/eu.html" style="margin-right:50px;"><button class="signup-btn">EU Map</button></a>
+			<a href="pages/world.html"><button class="signup-btn">World Map</button></a>
+		</div>
+	</div>
+</body>
+<footer>
+	Copyright &copy; Alex Pavlou 2023
+</footer>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE HTML>
+<html lang="en">
+        <head>
+                <meta charset="utf-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width,initial-scale=1.0">
+                <link rel="stylesheet" href="../css/styles2.css" />
+                <title>Elite Horizon Luxury Hotel & Spa</title>
+                <link rel = "icon" href ="../img/logo/logo-icon.png" type = "image/x-icon">
+                <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+                <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+                <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+                <script>
+                        function start_ani() {
+                                var note = document.getElementById("note");
+                                var secs = document.getElementById("secs");
+                                note.style.display="block";
+                                note.classList.add("animate");
+                                var count = 11;
+                                var timerId = setInterval(function() {
+                                        count--;
+                                        secs.innerHTML = count;
+                                        if(count===0){location.reload();}
+                                },1000);
+                        }
+                </script>
+                <style>
+                        .slideshow-container {
+                                position: relative;
+                                width: 800px;
+                                height: 400px;
+                                border-radius: 5px;
+                                overflow: hidden;
+                        }
+                        .slideshow-container img {width:800px;height:400px;object-fit:cover;}
+                        .btn {
+                                cursor:pointer;
+                                border-radius:4px;
+                                border:0.1px solid darkgrey;
+                                background:white;
+                        }
+                        #container-div {
+                                display:flex;
+                                justify-content:center;
+                                align-items:flex-start;
+                                gap:125px;
+                                margin: 100px 50px 100px 50px;
+                        }
+                        @media screen and (max-width:1300px){
+                                #container-div {
+                                        flex-direction:column;
+                                        align-items:center;
+                                        gap:50px;
+                                }
+                        }
+                        @media screen and (max-width:850px){
+                                #imgGallery, #daterange {
+                                        max-width:85vw;
+                                        align-self:center;
+                                        overflow:hidden;
+                                }
+                                #imgGallery img {object-fit:cover;width:100%;min-height:100%;}
+                        }
+                        #wine-1,#water-1,#spa-1,#demo-wine,#demo-water,#demo-spa{display:none;}
+                </style>
+        </head>
+<a href="../public/index.html"><img loading="lazy" id="logo2" class="centered-img" src="../img/logo/logo-dark.png"></img></a>
+<body>
+        <div id="container-div">
+                <div style="display:flex;justify-content:center;flex-direction:column;gap:50px;">
+                <div id="imgGallery" class="slideshow-container">
+                        <img loading="lazy" src="../img/booking-page/bed1.jpg"></img>
+                        <img loading="lazy" src="../img/booking-page/bed1.jpg"></img>
+                        <img loading="lazy" src="../img/booking-page/img3.jpg"></img>
+                        <img loading="lazy" src="../img/booking-page/img5.jpg"></img>
+                        <img loading="lazy" src="../img/booking-page/bed2.jpg"></img>
+                        <img loading="lazy" src="../img/booking-page/img4.jpg"></img>
+                </div>
+                <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;">
+                        <input type="text" id="daterange" name="daterange" style="width:800px;padding-top:4px;font-size:18px;" readonly/>
+                        <script defer>
+                        var c = 0;
+                        $(function() {
+                          $('input[name="daterange"]').daterangepicker({
+                            opens: 'center',
+                            mindate: new Date(),
+                            startDate: moment(),
+                            endDate: moment().add(1, 'day'),
+                            alwaysShowCalendars: true,
+                            locale: { format: 'DD MMMM'}
+                          }, function(start, end, label) {
+                                  var a = start.format('YY-MM-DD');
+                                  var b = end.format('YY-MM-DD');
+                                  localStorage.setItem("a",a);
+                                  localStorage.setItem("b",b);
+var sum=0;
+var a = localStorage.getItem("a").split('-');
+var b = localStorage.getItem("b").split('-');
+if (a===0){
+        var days=2;
+}else{
+        var a = new Date(a[0],a[1],a[2]);
+        var b = new Date(b[0],b[1],b[2]);
+        var days= (b.getTime() - a.getTime())/(1000*60*60*24);
+        if(days===0 || isNaN(parseFloat(days))){days=2;}
+}
+var person_num=parseInt(document.getElementById("person").value);
+sum = sum + (person_num*120)*days;
+sum_1 = sum
+document.getElementById("demo-rooms").innerHTML = sum + "€";
+
+var wine = document.getElementById("wine");
+wine_num=parseInt(wine.value);
+sum = sum + (wine_num*40);
+if(sum-sum_1>0){document.getElementById("demo-wine").innerHTML = parseInt(sum-sum_1) + "€";document.getElementById("demo-wine").style.display="block";document.getElementById("wine-1").style.display="block";
+}else{document.getElementById("demo-wine").style.display = "none";document.getElementById("wine-1").style.display="none";}
+sum_1=sum;
+
+var water = document.getElementById("water");
+water_num=parseInt(water.value);
+sum = sum + (water_num*80);
+if(sum-sum_1>0){document.getElementById("demo-water").innerHTML = parseInt(sum-sum_1) + "€";document.getElementById("demo-water").style.display="block";document.getElementById("water-1").style.display="block";
+}else{document.getElementById("demo-water").style.display = "none";document.getElementById("water-1").style.display="none";}
+sum_1=sum;
+
+var spa = document.getElementById("spa");
+spa_num=parseInt(spa.value);
+sum = sum + (spa_num*180);
+if(sum-sum_1>0){document.getElementById("demo-spa").innerHTML = parseInt(sum-sum_1) + "€";document.getElementById("demo-spa").style.display="block";document.getElementById("spa-1").style.display="block";
+}else{document.getElementById("demo-spa").style.display = "none";document.getElementById("spa-1").style.display="none";}
+if(spa_num>1){
+        var discount = 18*(spa_num-1);
+        sum = sum-discount
+        document.getElementById("demo-note").innerHTML = "Saved " + discount + "€";
+}else{document.getElementById("demo-note").innerHTML ="";}
+sum=sum+8;
+document.getElementById("demo").innerHTML = "Total:  " + parseInt(sum) + "€";
+                          });
+                        });
+                        localStorage.setItem("a",0);
+                        localStorage.setItem("b",0);
+                        </script>
+                </div>
+                </div>
+                <div style="display:flex;border:0.5px solid black;width:350px;height:800px;align-items:center;;justify-content:flex-start;flex-direction:column;border-radius:5px;">
+                        <div class="quantity">
+                                <p>People: </p>
+                                <div>
+                                        <input type="number" min="1" max="32" step="1" value="1" id="person" readonly>
+                                        <div class="quantity-nav">
+                                                <button class="quantity-button quantity-up" id="person-up">+</button>
+                                                <button class="quantity-button quantity-down" style="height:30%;" id="person-down">-</button>
+                                        </div>
+                                </div>
+                                <button style="font-size:16px;color:grey;font-family:'Shaimus';padding:4px;padding-right:9px;padding-left:9px;margin-left:5px;margin-bottom:11px;background-color:darkwhite;border-radius:5px;border:none;" title="Choose the number of people who will be staying. Room arrangements can be decided in the next step.">?</button>
+                        </div>
+                        <h2 style="align-self:center;margin-top:25px;">Special Offers</h2>
+                        <div class="quantity">
+                                <p>Wine Tasting Package: </p>
+                                <div>
+                                        <input type="number" min="0" step="1" value="0" id="wine" max="32" readonly>
+                                        <div class="quantity-nav">
+                                                <button class="quantity-button quantity-up" id="wine-up">+</button>
+                                                <button class="quantity-button quantity-down" id="wine-down">-</button>
+                                        </div>
+                                </div>
+                                <button style="font-size:16px;color:grey;font-family:'Shaimus';padding:4px;padding-right:9px;padding-left:9px;margin-left:5px;margin-bottom:11px;background-color:darkwhite;border-radius:5px;border:none;" title="Choose the number of people who will be subscribing to the Wine Tasting Package.">?</button>
+                        </div>
+                        <div class="quantity">
+                                <p>Guided Tour Package: </p>
+                                <div>
+                                        <input type="number" min="0" step="1" value="0" id="water" max="32" readonly>
+                                        <div class="quantity-nav">
+                                                <button class="quantity-button quantity-up" id="water-up">+</button>
+                                                <button class="quantity-button quantity-down" id="water-down">-</button>
+                                        </div>
+                                </div>
+                                <button style="font-size:16px;color:grey;font-family:'Shaimus';padding:4px;padding-right:9px;padding-left:9px;margin-left:5px;margin-bottom:11px;background-color:darkwhite;border-radius:5px;border:none;" title="Choose the number of people who will be subscribing to the Guided Tour Package.">?</button>
+                        </div>
+                        <div class="quantity">
+                                <p>Spa Therapy Package: </p>
+                                <div>
+                                        <input type="number" min="0" step="1" value="0" id="spa" max="32" readonly>
+                                        <div class="quantity-nav">
+                                                <button class="quantity-button quantity-up" id="spa-up">+</button>
+                                                <button class="quantity-button quantity-down" id="spa-down">-</button>
+                                        </div>
+                                </div>
+                                <button style="font-size:16px;color:grey;font-family:'Shaimus';padding:4px;padding-right:9px;padding-left:9px;margin-left:5px;margin-bottom:11px;background-color:darkwhite;border-radius:5px;border:none;" title="Choose the number of people who will be subscribing to the Spa Therapy Package.">?</button>
+                        </div>
+                        <script src="../js/daterangepicker.js" defer></script>
+                        <hr style="width:80%;opacity:0.2;margin-top:25px;margin-bottom:30px;">
+                        <div style="display:flex;gap:30px;align-items:flex-start;">
+                        <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-start;margin-left:-20px;">
+                                <p>Tax & Fees:</p>
+                                <p>Rooms:</p>
+                                <p id="wine-1">Wine Tasting Package:</p>
+                                <p id="water-1">Guided Tour Package:</p>
+                                <p id="spa-1">Spa Therapy Package:</p>
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:10px;margin-right:-20px;align-items:flex-start;">
+                                <p style="margin-top:-9px;margin-bottom:-11px;">34€ <button style="font-size:16px;color:grey;font-family:'Shaimus';padding:4px;padding-right:9px;padding-left:9px;margin-left:25px;margin-bottom:11px;background-color:darkwhite;border-radius:5px;border:none;" title="Fees include tax, Amenity Fees (With these you contribute to the upkeep of facilities such as our gym and spa spaces, our elevators, swimming pools etc) and booking fees (With these you contribute to the mantainance of our web platform)">?</button></p>
+                                <p id="demo-rooms"></p>
+                                <p id="demo-wine"></p>
+                                <p id="demo-water"></p>
+                                <p id="demo-spa"></p>
+                        </div>
+                        </div>
+                        <p id="demo-note" style="color:darkgrey;font-size:14px;margin-top:10px;margin-bottom:20px;">
+                        <p>Discount Coupon</p>
+                        <input type="text" id="discount-coupon" onfocus="this.value=''" maxlength="5" style="padding:1px;border:0.1px solid black;font-size:20px;margin-top:1px;border-radius:5px;text-transform:uppercase;"></input>
+                        <div id="demo" style="justify-self:end;margin-top:30px;"></div>
+                        <a href="javascript:void(0)"><button id="book-btn" class="book-btn" style="margin-top:10px;" onclick="start_ani()"><span>PROCEED</span></button></a>
+                        <script src="../js/calculatesum.js" defer></script>
+                        <div id="note">Thanks For Using My Website!</br>You Can Find More Of My Projects On </br><u><a href="https://www.github.com/alexpavlou">github.com/alexpavlou</a></u></br>This page will reload in <span id="secs"></span> seconds</div>
+                </div>
+        </div>
+</body>
+
+<script defer>
+        (function() {
+                var imgLen = document.getElementById('imgGallery');
+                var images = imgLen.getElementsByTagName('img');
+                var counter = 1;
+                images[0].src = images[counter].src;
+
+                if (counter <= images.length+1) {
+                        setInterval(function() {
+                                images[0].src = images[counter].src;
+                                counter++;
+
+                                if (counter === images.length) {
+                                        counter = 0;
+                                }
+                        }, 4000);
+                }
+        })();
+</script>
+
+<footer style="background:#AA9261;">
+        <div class="col-1">
+                <img loading="lazy" src="../img/signature.png" style="width:200px;filter: invert(100%) sepia(100%) saturate(17%) hue-rotate(344deg) brightness(100%) contrast(100%);"></img>
+                <h3>Newsletter</h3>
+                <form>
+                        <input type="email"  style="border-bottom:0.5px solid #ccc;margin-bottom:20px;"placeholder="Your Email Address"></br>
+                        <button type="submit">Subscribe</button>
+                </form>
+        </div>
+        <div class="col-2">
+                <h3>Links</h3>
+                <a href="javascript:void(0)">About Us</a></br>
+                <a href="javascript:void(0)">Services</a></br>
+                <a href="javascript:void(0)">Privacy Policy</a></br> <a href="javascript:void(0)">Copyright Policy</a></br>
+        </div>
+        <div class="col-3">
+                <h3>Contact</h3>
+                <p>Piazza Giuseppe Mazzini, 19</br>(+39) 095 932016</br>Catania, Sicily, Italy</p>
+                <p style="text-decoration:underline;"><a href="mailto:inbox@elitehorizon.com">inbox@elitehorizon.com</a></p>
+                <ul class="social-icons">
+                        <li><a href="javascript:void(0)"><img loading="lazy" src="../img/svg/tiktok.svg"></a></li>
+                        <li><a href="javascript:void(0)"><img loading="lazy" src="../img/svg/facebook.svg"></a></li>
+                        <li><a href="javascript:void(0)"><img loading="lazy" src="../img/svg/instagram.svg"></a></li>
+                        <li><a href="javascript:void(0)"><img loading="lazy" src="../img/svg/youtube.svg"></a></li>
+                </ul>
+        </div>
+</footer>
+<p style="background:#AA9261;color:white;padding:20px 0 20px;"><em>No Copyright &copy; 2023</em></br></p>
+</div>
+</html>
