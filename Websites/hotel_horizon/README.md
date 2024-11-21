@@ -6,8 +6,11 @@
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=flat&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=flat&logo=javascript&logoColor=%23F7DF1E)
 
-<img src="../../images/horizon-desktop.png">
-<img src="../../images/horizon-mobile.png">
+
+<div align="center">
+  <img src="../../images/horizon-desktop.png" style="height: 450px;width:auto">
+  <img src="../../images/horizon-mobile.png" style="height: 450px;width:auto;">
+</div>
 
 ## Features
 
@@ -20,4 +23,5 @@
 
 > Clone the repository and view the index.html file on your favourite browser. The page has been designed to also work on mobile or tablet displays
 
-> 
+
+> All information, names, images, and content related to 'Hotel Horizon' are entirely ficticious and were created for demonstration purposes only. This project is not affiliated or connected to any real-world companies, hotels, or services.
