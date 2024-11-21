@@ -11,7 +11,7 @@
 </div>
 
 ## Summary
-> This program provides a simple account management system that allows users to:
+This program provides a simple account management system that allows users to:
 - 🛂 Log in to their account
 - ✍️ Create new accounts
 - 💵 Deposit, withdraw, and transfer money
@@ -49,6 +49,6 @@ To build and run this project, the following libraries are required:
 
 1. 🚪 Clone or download the repository.
 2. ⚙️ Compile the C++ code using your preferred compiler (e.g., g++).
-   - Example:
+   
      ```bash
      g++ -o account_manager main.cpp -lsqlite3 -lsodium
