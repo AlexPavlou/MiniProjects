@@ -13,6 +13,6 @@
 > Some of the most important projects you can find in this repository are:
 
 - 🌐 Hotel Horizon (HTML/CSS/JS)
+- 👨‍💻 bank.cpp
 - 🐍 minesweeper.py
-- 🐍 todo.py
 - 🐍 pass.py
