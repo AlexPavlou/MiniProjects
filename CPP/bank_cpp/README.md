@@ -7,7 +7,7 @@
 
 <div align="center" style="display: flex; justify-content: space-between; width: 100%;">
   <img src="../../images/bank/bank-welcome.png" style="width: 48%; object-fit: contain;">
-  <img src="../../images/bank-accounts.png" style="width: 48%; object-fit: contain;">
+  <img src="../../images/bank/bank-accounts.png" style="width: 48%; object-fit: contain;">
 </div>
 
 ## Summary 📝
