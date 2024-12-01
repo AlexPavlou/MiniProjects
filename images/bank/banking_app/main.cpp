@@ -435,10 +435,12 @@ void displayMainMenu(const std::string& username) {
     std::cout << "3.  Withdraw\n";
     std::cout << "4.  Transfer\n";
     std::cout << "5.  Transaction History\n";
-    std::cout << "6.  Create New Account\n";
-    std::cout << "7.  Login Into New Account\n";
-    std::cout << "8. Log Out And Exit The App\n";
-    std::cout << "Choose an option (1-8): ";
+    std::cout << "6.  Log Out Of This Account\n";
+    std::cout << "7.  Create New Account\n";
+    std::cout << "8.  Switch Account\n";
+    std::cout << "9.  Login Into New Account\n";
+    std::cout << "10. Log Out And Exit The App\n";
+    std::cout << "Choose an option (1-10): ";
 }
 
 void handleUserInput(sqlite3* db, std::unique_ptr<Account>& account, bool& flag_finished, int& option_login_or_create) {
@@ -447,7 +449,7 @@ void handleUserInput(sqlite3* db, std::unique_ptr<Account>& account, bool& flag_
     while (true) {
         displayMainMenu(account->getUsername());   
         std::cin>>opt;
-        while(!isValidInput(opt,1,8)) {
+        while(!isValidInput(opt,1,10)) {
             displayMainMenu(account->getUsername());
             std::cin>>opt;
         }
@@ -490,13 +492,15 @@ void handleUserInput(sqlite3* db, std::unique_ptr<Account>& account, bool& flag_
                 printTransactionHistory(db, account->getUsername(), account->getBalance());
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // Discard invalid input
                 break;
-            case 6:
+            //case 6:
+            case 7:
                 option_login_or_create=2;
                 return;
-            case 7:
+            //case 8:
+            case 9:
                 option_login_or_create=1;
                 return;
-            case 8:
+            case 10:
                 flag_finished=true;
                 return;
         }
